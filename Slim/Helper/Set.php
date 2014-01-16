@@ -97,8 +97,10 @@ class Set implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function replace($items)
     {
-        foreach ($items as $key => $value) {
-            $this->set($key, $value); // Ensure keys are normalized
+    	if (is_array($items)) {
+	        foreach ($items as $key => $value) {
+	            $this->set($key, $value); // Ensure keys are normalized
+	        }
         }
     }
 
